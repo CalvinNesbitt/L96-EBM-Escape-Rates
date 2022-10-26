@@ -34,9 +34,6 @@ else:
     escape_time_pd = '/rds/general/user/cfn18/home/Instantons/L96-EBM-Escape-Rates/Escape-Time-Data/'
     ic_save_dir = '/rds/general/user/cfn18/home/Instantons/L96-EBM-Escape-Rates//Relaxing-from-Bounded-Regions/IC-Files/'
 
-sys.path.append(attractorObjectDirectory)
-from attractors import L96EBMAttractor
-from plots import *
 
 ########################################################################
 ## Escape Time File Names
@@ -87,7 +84,7 @@ def m_state_file_name(pd=attractor_data_pd, S=10):
 ########################################################################
 
 def get_attractor(file_name):
-    return L96EBMAttractor(file_name)
+    return xr.open_dataset(file_name)
 
 def get_w_attractor(pd=attractor_data_pd, S=10):
     file_name = w_attractor_file_name(pd=pd, S=S)

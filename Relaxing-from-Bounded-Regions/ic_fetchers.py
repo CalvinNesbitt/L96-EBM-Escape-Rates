@@ -27,8 +27,8 @@ def get_attractor_bounds(attractor, S):
         attractor = get_m_state(S=S)
 
     # Compute lower/upper bounds for X and T variables
-    lower_bounds = np.min(attractor.ds_as_np, axis=0)
-    upper_bounds = np.max(attractor.ds_as_np, axis=0)
+    lower_bounds = np.min(ds_to_np(attractor), axis=0)
+    upper_bounds = np.max(ds_to_np(attractor), axis=0)
     return lower_bounds, upper_bounds
 
 def get_sample_ic_from_bounding_box(attractor, S, number_of_samples):
