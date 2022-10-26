@@ -49,8 +49,6 @@ elif disapearing_attractor == 'sb':
     exit_function = check_sb_exit_time
 
 ic = ic_list[ic_number]
-exit_times = load_escape_time_file(S, disapearing_attractor)
-print(exit_times)
 #########################################################################
 ## Running and Saving Transient Escape Time
 #########################################################################
@@ -67,9 +65,9 @@ print(f'**Running Integration with S = {S:.3f}.\nIC number is {ic_number}.\nInve
 make_observations(runner, looker, number_of_observations, dt, noprog=True)
 
 # Compute Exit Time
+exit_times = load_escape_time_file(S, disapearing_attractor)
 exit_time = exit_function(looker.observations)
 exit_times = np.append(exit_times, exit_time)
-print(exit_times)
 
 # Save Exit Time
 escape_time_file_name = escape_time_file(S, disapearing_attractor)
