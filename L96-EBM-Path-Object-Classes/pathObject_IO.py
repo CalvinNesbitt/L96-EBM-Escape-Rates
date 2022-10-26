@@ -31,8 +31,8 @@ if on_mac():
     attractor_data_pd = '/Users/cfn18/Documents/PhD-Work/Third-Year/Instanton-Work/L96-EBM-Instanton/Deterministic-Model/Effect-of-S/Attractor-Data/'
 else:
     # Location of Relaxation Data
-    print('Specify where relaxation data is stored.')
-    relxation_data_pd = None
+    # Location of Attractor Data: Should be SB, W and M.
+    attractor_data_pd = '/rds/general/user/cfn18/home/Instantons/L96-EBM-Effect-of-S/Attractor-Data/'
 
 # Attractor File Names
 def w_attractor_file_name(pd=attractor_data_pd, S=10):

@@ -29,7 +29,6 @@ if on_mac():
     escape_time_pd = '/Users/cfn18/Documents/PhD-Work/Third-Year/Instanton-Work/L96-EBM-Instanton-Cleaned-Up/L96-EBM-Escape-Rates/Escape-Time-Data/'
     ic_save_dir = '/Users/cfn18/Documents/PhD-Work/Third-Year/Instanton-Work/L96-EBM-Instanton-Cleaned-Up/L96-EBM-Escape-Rates/Relaxing-from-Bounded-Regions/IC-Files/'
 else:
-    'Instantons/L96-EBM-Escape-Rates/Relaxing-from-Bounded-Regions/'
     attractor_data_pd = '/rds/general/user/cfn18/home/Instantons/L96-EBM-Effect-of-S/Attractor-Data/'
     attractorObjectDirectory = '/rds/general/user/cfn18/home/Instantons/L96-EBM-Escape-Rates/L96-EBM-Path-Object-Classes/'
     escape_time_pd = '/rds/general/user/cfn18/home/Instantons/L96-EBM-Escape-Rates/Escape-Time-Data/'
