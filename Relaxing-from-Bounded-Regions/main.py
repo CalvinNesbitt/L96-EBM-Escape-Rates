@@ -21,11 +21,11 @@ input_number = int(sys.argv[1]) - 1
 
 # W Setups
 w_S_values = np.linspace(7.5, 7.7, 10)
-w_setups = list( itertools.product(w_S_values, ['w'], np.arange(0, 1000) ) )
+w_setups = list( itertools.product(w_S_values, ['w'], np.arange(0, 100) ) )
 
 # SB Setups
 sb_S_values = np.linspace(15.3, 15.5, 10)
-sb_setups = list( itertools.product(sb_S_values, ['sb'], np.arange(0, 1000) ) )
+sb_setups = list( itertools.product(sb_S_values, ['sb'], np.arange(0, 100) ) )
 
 all_setups = w_setups + sb_setups
 setup = all_setups[input_number]
@@ -33,7 +33,7 @@ print(len(all_setups))
 S, disapearing_attractor, ic_number = setup
 
 # Transient Length
-max_transient_length = 1000
+max_transient_length = 5000
 dt = 0.01 # Time between observing transient
 save_transients = False
 number_of_observations = int(max_transient_length/dt)
