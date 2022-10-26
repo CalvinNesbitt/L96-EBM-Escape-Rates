@@ -66,7 +66,7 @@ print(f'**Running Integration with S = {S:.3f}.\nIC number is {ic_number}.\nInve
 make_observations(runner, looker, number_of_observations, dt, noprog=True)
 
 # Compute Exit Time
-exit_time = check_w_exit_time(looker.observations)
+exit_time = exit_function(looker.observations)
 exit_times = np.append(exit_times, exit_time)
 
 # Save Exit Time
