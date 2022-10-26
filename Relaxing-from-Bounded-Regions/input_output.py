@@ -9,6 +9,7 @@ Contains:
 import xarray as xr
 import numpy as np
 import sys
+import os
 
 # Function to identify where we're running
 from pathlib import Path
