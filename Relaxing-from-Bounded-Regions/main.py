@@ -50,6 +50,7 @@ elif disapearing_attractor == 'sb':
 
 ic = ic_list[ic_number]
 exit_times = load_escape_time_file(S, disapearing_attractor)
+print(exit_times)
 #########################################################################
 ## Running and Saving Transient Escape Time
 #########################################################################
@@ -68,6 +69,7 @@ make_observations(runner, looker, number_of_observations, dt, noprog=True)
 # Compute Exit Time
 exit_time = exit_function(looker.observations)
 exit_times = np.append(exit_times, exit_time)
+print(exit_times)
 
 # Save Exit Time
 escape_time_file_name = escape_time_file(S, disapearing_attractor)
