@@ -16,8 +16,6 @@ from input_output import *
 S_w_critical = 7.8 # Roughly where the W-Attractor Dissapears
 S_sb_critical = 15.2 # Roughly where the SB-Attractor Dissapears
 
-ic_save_dir = '/Users/cfn18/Documents/PhD-Work/Third-Year/Instanton-Work/L96-EBM-Instanton-Cleaned-Up/L96-EBM-Escape-Rates/Relaxing-from-Bounded-Regions/IC-Files/'
-
 def get_attractor_bounds(attractor, S):
     "Find box bounding attractor for a particular value of S."
     # Fetch attractor
