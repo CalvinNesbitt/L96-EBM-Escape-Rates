@@ -33,7 +33,7 @@ print(len(all_setups))
 S, disapearing_attractor, ic_number = setup
 
 # Transient Length
-max_transient_length = 5000
+max_transient_length = 1000
 dt = 0.01 # Time between observing transient
 save_transients = False
 number_of_observations = int(max_transient_length/dt)
