@@ -25,11 +25,12 @@ import sys
 import seaborn as sns
 import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d
-import numpy as np
-from scipy import stats
 import matplotlib.colors as cm
 import matplotlib as mpl
 import matplotlib.transforms as mtransforms
+import numpy as np
+from scipy import stats
+
 import os
 import string
 
