@@ -51,7 +51,7 @@ def escape_time_file(*args, **kwargs):
 def initialise_escape_time_file(*args, **kwargs):
     sd = escape_time_directory(*args, **kwargs)
     if not os.path.exists(sd):
-        os.makedirs(sd)
+        os.makedirs(sd, exist_ok = True)
     file_name = escape_time_file(*args, **kwargs)
     if not os.path.exists(file_name):
         with open(file_name, 'a') as f:
