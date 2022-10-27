@@ -1,4 +1,4 @@
-#PBS -l walltime=12:00:00
+#PBS -l walltime=01:00:00
 #PBS -l select=1:ncpus=8:mem=62gb
 #PBS -N Escape-Rate
 #PBS -J 1-2000
