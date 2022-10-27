@@ -51,8 +51,8 @@ def load_w_edge_ic():
 
 if __name__ == '__main__':
     "Save ic as np files"
-    sb_edge_ic = make_sb_edge_sample_ic(1000)
-    w_edge_ic  = make_w_edge_sample_ic(1000)
+    sb_edge_ic = make_sb_edge_sample_ic(100)
+    w_edge_ic  = make_w_edge_sample_ic(100)
 
     if not os.path.exists(ic_save_dir):
         os.makedirs(ic_save_dir)

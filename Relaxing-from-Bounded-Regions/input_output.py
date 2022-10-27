@@ -46,19 +46,22 @@ def transient_path_folder(*args, **kwargs):
     return escape_time_directory(*args, **kwargs) + '/Transient-Paths/'
 
 def escape_time_file(*args, **kwargs):
-    return escape_time_directory(*args, **kwargs) + '/Escape-Times.npy'
+    return escape_time_directory(*args, **kwargs) + '/Transient-Lifetimes.txt'
 
-def load_escape_time_file(*args, **kwargs):
-    file_directory = escape_time_directory(*args, **kwargs)
+def initialise_escape_time_file(*args, **kwargs):
+    os.makedirs(escape_time_directory(*args, **kwargs))
     file_name = escape_time_file(*args, **kwargs)
-    try:
-        return np.load(file_name)
-    except:
-        if not os.path.exists(file_directory):
-            os.makedirs(file_directory)
-        escape_times = np.array([])
-        np.save(file_name, escape_times)
-        return escape_times
+    with open(file_name, 'a') as f:
+        f.write('Transient-Lifetimes\n')
+        f.close()
+    return
+
+def save_transient_lifetime(lifetime, *args, **kwargs):
+    file_name = escape_time_file(*args, **kwargs)
+    with open(file_name, 'a') as f:
+        f.write(str(lifetime) + '\n')
+        f.close()
+    return
 
 ########################################################################
 ## Attractor File Names

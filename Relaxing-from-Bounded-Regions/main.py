@@ -33,10 +33,17 @@ print(len(all_setups))
 S, disapearing_attractor, ic_number = setup
 
 # Transient Length
-max_transient_length = 1000
-dt = 0.1 # Time between observations
+max_transient_length = 10000
+dt = 0.01 # Time between observations
 save_transients = False
 number_of_observations = int(max_transient_length/dt)
+
+########################################################################
+## Where we save data
+########################################################################
+save_file = escape_time_file(S, disapearing_attractor)
+if not os.path.exists(save_file):
+    initialise_escape_time_file(S, disapearing_attractor)
 
 ########################################################################
 ## Load IC File,  Exit time function & Exit Time File
@@ -64,18 +71,14 @@ print(f'**Running Integration with S = {S:.3f}.\nIC number is {ic_number}.\nInve
 # Run Integrations
 make_observations(runner, looker, number_of_observations, dt, noprog=False)
 
-# Compute Exit Time
-exit_times = load_escape_time_file(S, disapearing_attractor)
-exit_time = exit_function(looker.observations)
-exit_times = np.append(exit_times, exit_time)
+# Compute Transient Lifetime
+transient_lifetime = exit_function(looker.observations)
 
 # Save Exit Time
-escape_time_file_name = escape_time_file(S, disapearing_attractor)
-np.save(escape_time_file_name, exit_times)
-print(f'Saved exit time {exit_time:.3f} to {escape_time_file_name}\n')
-print(f'Exit Times list is now {len(exit_times)} samples long.\n')
+save_transient_lifetime(transient_lifetime, S, disapearing_attractor)
+print(f'Saved transient lifetime {transient_lifetime:.3f} to {save_file}\n')
 
-# Possibly Save Transient
+# Possibly Save Transient - NOT YET FINISHED/TESTED
 if save_transients:
     transient_folder = transient_path_folder(S, attractor_transient)
     if not os.path.exists(transient_folder):
