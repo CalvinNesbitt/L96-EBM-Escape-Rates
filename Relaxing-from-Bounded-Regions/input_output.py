@@ -49,11 +49,14 @@ def escape_time_file(*args, **kwargs):
     return escape_time_directory(*args, **kwargs) + '/Transient-Lifetimes.txt'
 
 def initialise_escape_time_file(*args, **kwargs):
-    os.makedirs(escape_time_directory(*args, **kwargs))
+    sd = escape_time_directory(*args, **kwargs)
+    if not os.path.exists(sd):
+        os.makedirs(sd)
     file_name = escape_time_file(*args, **kwargs)
-    with open(file_name, 'a') as f:
-        f.write('Transient-Lifetimes\n')
-        f.close()
+    if not os.path.exists(file_name):
+        with open(file_name, 'a') as f:
+            f.write('Transient-Lifetimes\n')
+            f.close()
     return
 
 def save_transient_lifetime(lifetime, *args, **kwargs):
