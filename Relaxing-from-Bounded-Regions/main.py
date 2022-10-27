@@ -34,7 +34,7 @@ S, disapearing_attractor, ic_number = setup
 
 # Transient Length
 max_transient_length = 1000
-dt = 0.1 # Time between observing transient
+dt = 0.1 # Time between observations
 save_transients = False
 number_of_observations = int(max_transient_length/dt)
 
@@ -62,7 +62,7 @@ looker = TrajectoryObserver(runner)
 print(f'**Running Integration with S = {S:.3f}.\nIC number is {ic_number}.\nInvestigating {disapearing_attractor} transient.\nLoaded ic from {ic_save_dir}.\n\n')
 
 # Run Integrations
-make_observations(runner, looker, number_of_observations, dt, noprog=True)
+make_observations(runner, looker, number_of_observations, dt, noprog=False)
 
 # Compute Exit Time
 exit_times = load_escape_time_file(S, disapearing_attractor)

@@ -103,9 +103,4 @@ def ds_to_np(ds):
     "Converts ds point to np array."
     X = ds.X.values
     T = ds.T.values
-    return np.append(X, T)
-
-def get_ds_points(ds, n):
-    "Sample n points from a ds without replacament."
-    time_points = np.random.choice(ds.time, n, replace=False)
-    return [ds_to_np(ds.sel(time=x)) for x in time_points]
+    return np.column_stack((X, T))
