@@ -10,6 +10,8 @@ Classes for computing transient lifetime escape rates and how they scale with S
 import pandas as pd
 import numpy as np
 from scipy.optimize import curve_fit
+from scipy import stats
+from scipy.stats import linregress
 import glob
 
 from plotting import *
@@ -18,7 +20,7 @@ from escapeRateCalculations import *
 ##########################################
 ## Functions for fetching data
 ##########################################
-escape_time_data_pd = '/Users/cfn18/Documents/PhD-Work/Third-Year/Instanton-Work/L96-EBM-Instanton-Cleaned-Up/L96-EBM-Escape-Rates/Escape-Time-Data/'
+escape_time_data_pd = '/Users/cfn18/Documents/PhD-Work/Third-Year/Instanton-Work/L96-EBM-Instanton-Cleaned-Up/L96-EBM-Escape-Rates/Transient-Lifetime-Data/'
 
 def get_SB_escape_time_data(pd=escape_time_data_pd):
     return transientLifetimeCollection(glob.glob(escape_time_data_pd + '*/SB*/*.txt'))
@@ -131,9 +133,26 @@ class transientLifetimeCollection:
         return np.array([x.escape_rate for x in self._transient_lifetimes])
 
     @property
+    def mean_lifetimes(self):
+        return np.array([x.mean() for x in self._transient_lifetimes])
+
+    @property
     def critical_exponent(self):
         pars, cov = curve_fit(power_law, self.distances_from_S_crit, self.escape_rates)
         return pars[1]
+
+    def S_vs_mean_lifetime_plot(self, *args, fax=None, **kwargs):
+
+        # Init fax
+        if fax is None:
+            fax = init_2d_fax()
+        fig, ax = fax
+
+        ax.scatter(self.S_values, self.mean_lifetimes, *args, **kwargs)
+        ax.set_xlabel('S')
+        ax.set_ylabel('$<\\tau>$')
+        ax.set_title('Mean Lifetime as a Function of S')
+        return fax
 
     def S_vs_escape_rate_plot(self, *args, fax=None, **kwargs):
 
@@ -181,7 +200,7 @@ class transientLifetimeCollection:
 
         # Plot Escape Rate Data
         ax.scatter(self.distances_from_S_crit, self.escape_rates, *args, **kwargs)
-        ax.set_xlabel('S - Scrit')
+        ax.set_xlabel('$|S - S_{crit}|$')
         ax.set_ylabel('$\\kappa$')
         ax.set_title(f'Critical Exponent fit')
         ax.legend()

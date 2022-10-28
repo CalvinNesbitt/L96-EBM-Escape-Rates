@@ -55,7 +55,7 @@ def escape_rate_plot(x, fax=None, ns=None, min_sc=0, max_sc=None, rate_label=Non
     line, lr = linear_regression_fit(ns[indexes_for_fit], np.log(scs[indexes_for_fit]))
 
     if rate_label is None:
-        rate_label = f'$\\kappa=${-lr.slope:.2f}'
+        rate_label = f'$\\kappa=${-lr.slope:.4f}'
 
     ax.plot(ns[indexes_for_fit], line(ns[indexes_for_fit]), 'r--', alpha=1.0, lw=3, label=rate_label)
     ax.scatter( ns, np.nan_to_num(np.log(scs), neginf=0), **kwargs)
