@@ -1,6 +1,5 @@
 """
-Contains:
-- Functions for helping us to open attractor data.
+I/O for scripts generating transient lifetime data.
 """
 ########################################################################
 ## Imports
@@ -27,12 +26,12 @@ if on_mac():
     # PD for Attractor Data: Should be SB, W and M.
     attractor_data_pd = '/Users/cfn18/Documents/PhD-Work/Third-Year/Instanton-Work/L96-EBM-Instanton-Cleaned-Up/L96-EBM-Effect-of-S/Attractor-Data/'
     attractorObjectDirectory = '/Users/cfn18/Documents/PhD-Work/Third-Year/Instanton-Work/L96-EBM-Instanton-Cleaned-Up/L96-EBM-Escape-Rates/L96-EBM-Path-Object-Classes/'
-    escape_time_pd = '/Users/cfn18/Documents/PhD-Work/Third-Year/Instanton-Work/L96-EBM-Instanton-Cleaned-Up/L96-EBM-Escape-Rates/Escape-Time-Data/'
+    escape_time_pd = '/Users/cfn18/Documents/PhD-Work/Third-Year/Instanton-Work/L96-EBM-Instanton-Cleaned-Up/L96-EBM-Escape-Rates/Transient-Lifetime-Data/'
     ic_save_dir = '/Users/cfn18/Documents/PhD-Work/Third-Year/Instanton-Work/L96-EBM-Instanton-Cleaned-Up/L96-EBM-Escape-Rates/Relaxing-from-Bounded-Regions/IC-Files/'
 else:
     attractor_data_pd = '/rds/general/user/cfn18/home/Instantons/L96-EBM-Effect-of-S/Attractor-Data/'
     attractorObjectDirectory = '/rds/general/user/cfn18/home/Instantons/L96-EBM-Escape-Rates/L96-EBM-Path-Object-Classes/'
-    escape_time_pd = '/rds/general/user/cfn18/home/Instantons/L96-EBM-Escape-Rates/Escape-Time-Data/'
+    escape_time_pd = '/rds/general/user/cfn18/home/Instantons/L96-EBM-Escape-Rates/Transient-Lifetime-Data/'
     ic_save_dir = '/rds/general/user/cfn18/home/Instantons/L96-EBM-Escape-Rates//Relaxing-from-Bounded-Regions/IC-Files/'
 
 
