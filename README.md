@@ -7,5 +7,5 @@ The contents of the project is as follows:
 - Plotting-Escape-Rates, notebooks plotting escape rates and show key fits for the critical exponent.
 - Relaxing-from-Bounded-Regions, simulations of the L96-EBM for different values of the solar parameter S.
 - Transient-Lifetime-Classes, classes used in the computations of escape rates/critical exponents.
-- L96-EBM-Path-Object-Classes, classes used to determine study relaxations in the L96-EBM.
+- L96-EBM-Path-Object-Classes, classes used to study relaxations in the L96-EBM.
 
